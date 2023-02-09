@@ -218,6 +218,21 @@ const config = {
                       label: "DNS Security API",
                       icon: "api-doc",
                     },
+                    {
+                      to: "https://docs.paloaltonetworks.com/enterprise-dlp/enterprise-dlp-api/enterprise-dlp-api-overview/dlp-api-resources",
+                      label: "Data Loss Prevention API",
+                      icon: "api-doc",
+                    },
+                    {
+                      to: "https://docs.paloaltonetworks.com/saas-security/saas-security-admin/saas-security-api",
+                      label: "SaaS Security API",
+                      icon: "api-doc",
+                    },
+                    {
+                      to: "https://docs.paloaltonetworks.com/wildfire/u-v/wildfire-api",
+                      label: "WildFire API",
+                      icon: "api-doc",
+                    },
                   ],
                 },
                 {
@@ -554,6 +569,7 @@ const config = {
           auth: {
             specPath: "openapi-specs/sase/auth",
             outputDir: "products/sase/api/auth",
+            proxy: "https://cors.pan.dev",
             sidebarOptions: {
               groupPathsBy: "tag",
             },
@@ -627,11 +643,13 @@ const config = {
           "threat-vault": {
             specPath: "openapi-specs/threat-vault/",
             outputDir: "products/threat-vault/api",
+            proxy: "https://cors.pan.dev",
             sidebarOptions: { groupPathsBy: "tag", categoryLinkSource: "info" },
           },
           "dns-security": {
             specPath: "openapi-specs/dns-security/dns-security.yaml",
             outputDir: "products/dns-security/api",
+            proxy: "https://cors.pan.dev",
             sidebarOptions: { groupPathsBy: "tag", categoryLinkSource: "info" },
           },
           cdl: {
@@ -657,7 +675,7 @@ const config = {
   ],
   stylesheets: [
     {
-      href: "https://use.fontawesome.com/releases/v5.15.0/css/all.css",
+      href: "https://use.fontawesome.com/releases/v6.2.0/css/all.css",
       type: "text/css",
       rel: "stylesheet",
     },
@@ -675,6 +693,11 @@ const config = {
         target: isServer ? "node12" : "es2017",
       },
     }),
+  },
+  customFields: {
+    firebaseApiKey: process.env.REACT_APP_FIREBASE_APIKEY,
+    recaptchaApiKey: process.env.REACT_APP_RECAPTCHA_APIKEY,
+    errorReporterApiKey: process.env.REACT_APP_ERROR_REPORTER_APIKEY,
   },
 };
 

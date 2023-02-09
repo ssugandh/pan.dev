@@ -11,9 +11,8 @@ keywords:
 
 # Welcome to the Aggregate Monitoring APIs
 
-Welcome to the Aggregate Monitoring APIs. To use these APIs, you must be a new Managed
-Security Service Provider (MSSP) customer as of March 2022 and must have configured your multitenant
-hierarchy for a new deployment of Prisma Access.
+Welcome to the Aggregate Monitoring APIs. These APIs are available to customers that utilize Cloud
+Management for service onboarding, configuration, and operations.
 
 After you [create a tenant service group](/sase/docs/tenant-service-groups),
 [create a service account](/sase/docs/service-accounts),
@@ -21,15 +20,16 @@ and [obtain an access token](/sase/docs/access-tokens),
 you can use the [Aggregate Monitoring API Reference](/sase/api/mt-monitor) to discover how to
 perform aggregated monitoring queries for the following resources:
 
-- [Data Resource API](/category/sase/api/mt-monitor/data-resources/): retrieve aggregated summaries and counts
+- [Data Resource API](/sase/api/mt-monitor/data-resource-api/): retrieve aggregated summaries and counts
   across all your tenants of a Prisma Access instance for threats, alerts, risky applications, URLs,
-  and upgrades.
-- [License Resource API](/category/sase/api/mt-monitor/license-resources/): retrieve aggregated lists across
+  and connectivity status.
+- [Insights Resource API](/sase/api/mt-monitor/insights-resource-api/): retrieve an aggregated list of insights, such as all upgrade statuses across tenants.
+- [License Resource API](/sase/api/mt-monitor/license-resource-api/): retrieve aggregated lists across
   Prisma Access tenants for license quotas, setup status, and utilization.
-- [Tenant Resources API](/category/sase/api/mt-monitor/tenant-resources/): list all Prisma Access tenants in
+- [Tenant Resources API](/sase/api/mt-monitor/tenant-resources-api/): list all Prisma Access tenants in
   the hierarchy.
 
-The monitoring functionality exposed by these APIs can also be performed using the Prisma SASE Platform's 
+The monitoring functionality exposed by these APIs can also be performed using the Prisma SASE Platform's
 [Multitentant Portal user interface](https://docs.paloaltonetworks.com/sase/prisma-sase-multitenant-platform/monitor-tenants).
 
 ## Authentication
@@ -56,6 +56,8 @@ filters and properties](/sase/docs/filters) that you need to use in the request 
 
 ## X-PANW-Region Header Parameter
 
-The `X-PANW-Region` header parameter is the region you chose when setting up your tenant. It must be one of the following: `de`, `americas`, `europe`, `uk`, `sg`, `ca`, `jp`, `au`, `in`. Returns details from the Cortex Data Lake (CDL) region specified.
+The `X-PANW-Region` header parameter is the region you chose when setting up your tenant. It must be one of the following:
+`de`, `americas`, `europe`, `uk`, `sg`, `ca`, `jp`, `au`, `in`. The API will then return details from the specified
+Cortex Data Lake (CDL) region.
 
 If you need to verify which region to use, you can [list tenant hierarchy](/sase/api/mt-monitor/get-mt-monitor-v-1-agg-custom-tenant-hierarchy) to see the region in the response.
